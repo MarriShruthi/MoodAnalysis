@@ -10,16 +10,16 @@ namespace MSTestforMoodAnalyser
         //TC 1.1
         /// Test for happy mood
         [TestMethod]
-        public void GivenSadMood_ShouldReturnSAD()
+        public void GivenAnyMood_ShouldReturnHAPPY()
         {
             //Arrange
-            MoodAnalysis moodAnalysis = new MoodAnalysis("I am in sad mood");
+            MoodAnalysis moodAnalysis = new MoodAnalysis("I am in any mood");
 
             //Act
             string mood = moodAnalysis.AnalyzeMood();
 
             //Assert
-            Assert.AreEqual("SAD", mood);
+            Assert.AreEqual("HAPPY", mood);
         }
     }
 }

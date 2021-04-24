@@ -20,10 +20,7 @@ namespace MoodAnalyser
         //Analyser method to find mood
         public string AnalyzeMood()
         {
-            //Handling Exception
-            try
-            {
-                if (this.message.Contains("I am in happy mood"))
+                if (this.message.Contains("I am in any mood"))
                 {
                     return "HAPPY";
                 }
@@ -31,11 +28,6 @@ namespace MoodAnalyser
                 {
                     return "SAD";
                 }
-            }
-            catch(NullReferenceException ex)
-            {
-                return "Happy";
-            }
         }
     }
 }
