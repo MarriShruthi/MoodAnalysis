@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -18,16 +19,26 @@ namespace MoodAnalyser
         }
 
         //Analyser method to find mood
-        public string AnalyzeMood()
+        public string AnalyzerMethod()
         {
-                if (this.message.Contains("I am in any mood"))
+            try
+            {
+                if (this.message.Equals(string.Empty))
+
+                    throw new MoodAnalyserException(MoodAnalyserException.ExceptionType.EMPTY_EXCEPTION, "Mood should not be empty");
+                if (this.message.ToLower().Contains("happy"))
                 {
-                    return "HAPPY";
+                    return "happy";
                 }
                 else
                 {
-                    return "SAD";
+                    return "sad";
                 }
+            }
+            catch (NullReferenceException ex)
+            {
+                throw new MoodAnalyserException(MoodAnalyserException.ExceptionType.NULL_EXCEPTION, "Mood should not be null");
+            }
         }
     }
 }

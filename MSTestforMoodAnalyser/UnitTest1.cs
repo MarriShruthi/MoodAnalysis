@@ -10,16 +10,22 @@ namespace MSTestforMoodAnalyser
         //TC 1.1
         /// Test for happy mood
         [TestMethod]
-        public void GivenAnyMood_ShouldReturnHAPPY()
+        public void Given_NullMood_Using_CustomException_Return_Null()
         {
             //Arrange
-            MoodAnalysis moodAnalysis = new MoodAnalysis("I am in any mood");
-
-            //Act
-            string mood = moodAnalysis.AnalyzeMood();
-
-            //Assert
-            Assert.AreEqual("HAPPY", mood);
+            MoodAnalysis moodAnalysis = new MoodAnalysis(null);
+            
+            string expected = "Mood should not be null";
+            try
+            {
+                //Act
+               string actual = moodAnalysis.AnalyzerMethod();
+            }
+            catch (MoodAnalyserException exception)
+            {
+                //Assert
+                Assert.AreEqual(expected, exception.Message);
+            }
         }
     }
 }
