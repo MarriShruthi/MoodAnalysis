@@ -12,6 +12,10 @@ namespace MoodAnalyser
         //instance variables
         string message;
 
+        public MoodAnalysis()
+        {
+        }
+
         //Parameterized constructor for intialising instance members
         public MoodAnalysis(string message)
         {
@@ -19,23 +23,28 @@ namespace MoodAnalyser
         }
 
         //Analyser method to find mood
-        public string AnalyzerMethod()
+        public string Analyser()
         {
             try
             {
+                if(this.message.Equals(string.Empty))
+                {
+                    throw new MoodAnalyserException(MoodAnalyserException.ExceptionType.EMPTY_EXCEPTION, "Mood should not be empty");
+                }
 
                 if (this.message.ToLower().Contains("happy"))
                 {
                     return "happy";
                 }
                 else
-                {
-                    return "no mood";
+                {//
+                    return "sad";
                 }
             }
-            catch(NullReferenceException ex)
+            catch(NullReferenceException )
             {
-                return ex.Message;
+                //return ex.Message;
+                throw new MoodAnalyserException(MoodAnalyserException.ExceptionType.NULL_EXCEPTION, "Mood should not be null");
             }
         }
     }
