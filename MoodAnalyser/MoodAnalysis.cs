@@ -23,22 +23,22 @@ namespace MoodAnalyser
         }
 
         //Analyser method to find mood
-        public string Analyser()
+        public string Analyser(string message)
         {
             try
             {
-                if(this.message.Equals(string.Empty))
+                if(message.Equals(string.Empty))
                 {
                     throw new MoodAnalyserException(MoodAnalyserException.ExceptionType.EMPTY_EXCEPTION, "Mood should not be empty");
                 }
 
-                if (this.message.ToLower().Contains("happy"))
+                if (this.message.Contains("sad"))
                 {
-                    return "happy";
+                    return "SAD";
                 }
                 else
                 {//
-                    return "sad";
+                    return "HAPPY";
                 }
             }
             catch(NullReferenceException )
