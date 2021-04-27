@@ -21,14 +21,22 @@ namespace MoodAnalyser
         //Analyser method to find mood
         public string AnalyzerMethod()
         {
-           if (this.message.ToLower().Contains("happy"))
-           {
-               return "happy";
-           }
-           else
-           {
-               return "sad";
-           }
+            try
+            {
+
+                if (this.message.ToLower().Contains("happy"))
+                {
+                    return "happy";
+                }
+                else
+                {
+                    return "no mood";
+                }
+            }
+            catch(NullReferenceException ex)
+            {
+                return ex.Message;
+            }
         }
     }
 }
