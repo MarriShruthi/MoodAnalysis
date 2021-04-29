@@ -13,7 +13,7 @@ namespace MoodAnalyser
         /// </summary>
         /// creating type variable of type ExceptionType
         ExceptionType type;
-        private string message;
+        readonly string message;
 
         public enum ExceptionType
         {

@@ -9,43 +9,47 @@ namespace MoodAnalyser
 {
     public class MoodAnalysis
     {
-        //instance variables
         string message;
 
+        /// <summary>
+        /// parameterless constructor
+        /// </summary>
         public MoodAnalysis()
         {
         }
 
-        //Parameterized constructor for intialising instance members
+        /// <summary>
+        /// Parameterised constructor for initializing instance member
+        /// </summary>
         public MoodAnalysis(string message)
         {
             this.message = message;
         }
 
-        //Analyser method to find mood
+
+        ///Analyser method to find mood        
         public string Analyser(string message)
         {
             try
             {
-                if(message.Equals(string.Empty))
+                if (message.Equals(string.Empty))
                 {
-                    throw new MoodAnalyserException(MoodAnalyserException.ExceptionType.EMPTY_EXCEPTION, "Mood should not be empty");
+                    throw new MoodAnalyserException(MoodAnalyserException.ExceptionType.EMPTY_EXCEPTION, "Mood should not be EMPTY");
                 }
-
                 if (this.message.Contains("sad"))
                 {
                     return "SAD";
                 }
                 else
-                {//
+                {
                     return "HAPPY";
                 }
             }
-            catch(NullReferenceException )
+            catch (NullReferenceException)
             {
-                //return ex.Message;
-                throw new MoodAnalyserException(MoodAnalyserException.ExceptionType.NULL_EXCEPTION, "Mood should not be null");
+                throw new MoodAnalyserException(MoodAnalyserException.ExceptionType.NULL_EXCEPTION, "Mood should not be NULL");
             }
         }
+
     }
 }
